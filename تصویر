@@ -1,5 +1,0 @@
-{
-  "img": "https://www.uplooder.net/img/image/2/581c36ca6e9be44561f2e82dd694316e/Gift.png",
-  "name": "دانلود اسکچوار اسیستنت",
-  "link": "i.setAction(Intent.ACTION_VIEW);\r\ni.setData(Uri.parse(\"https://Google.com\"));\r\nstartActivity(i);"
-}
