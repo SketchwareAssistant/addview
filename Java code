@@ -1,0 +1,10 @@
+[
+  {
+    "name": "وسط چین کردن اکشن بار",
+    "code": "ActionBar actionBar \u003d getActionBar();\nactionBar.setDisplayShowCustomEnabled(true);\nactionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); \nactionBar.setCustomView(getLayoutInflater().inflate(R.layout.action_bar_main, null),\n        new ActionBar.LayoutParams(\n                ActionBar.LayoutParams.WRAP_CONTENT,\n                ActionBar.LayoutParams.MATCH_PARENT,\n                Gravity.CENTER\n        )\n);"
+  },
+  {
+    "name": "تغییر رنگ سیکبار",
+    "code": "seekbar1.getProgressDrawable().setColorFilter(Color.parseColor(\"#FF00FF\"), PorterDuff.Mode.SRC_IN); seekbar1.getThumb().setColorFilter(Color.parseColor(\"#FF00FF\"), PorterDuff.Mode.SRC_IN); "
+  }
+]
