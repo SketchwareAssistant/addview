@@ -1,10 +1,72 @@
 [
   {
     "name": "وسط چین کردن اکشن بار",
-    "code": "ActionBar actionBar \u003d getActionBar();\nactionBar.setDisplayShowCustomEnabled(true);\nactionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); \nactionBar.setCustomView(getLayoutInflater().inflate(R.layout.action_bar_main, null),\n        new ActionBar.LayoutParams(\n                ActionBar.LayoutParams.WRAP_CONTENT,\n                ActionBar.LayoutParams.MATCH_PARENT,\n                Gravity.CENTER\n        )\n);"
+    "code": "ActionBar actionBar \u003d getActionBar();\nactionBar.setDisplayShowCustomEnabled(true);\nactionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM); \nactionBar.setCustomView(getLayoutInflater().inflate(R.layout.action_bar_main, null),\n        new ActionBar.LayoutParams(\n                ActionBar.LayoutParams.WRAP_CONTENT,\n                ActionBar.LayoutParams.MATCH_PARENT,\n                Gravity.CENTER\n        )\n);\n\n//made by ax team",
+    "en_name": "Arrange in the middle\n"
   },
   {
     "name": "تغییر رنگ سیکبار",
-    "code": "seekbar1.getProgressDrawable().setColorFilter(Color.parseColor(\"#FF00FF\"), PorterDuff.Mode.SRC_IN); seekbar1.getThumb().setColorFilter(Color.parseColor(\"#FF00FF\"), PorterDuff.Mode.SRC_IN); "
+    "code": "seekbar1.getProgressDrawable().setColorFilter(Color.parseColor(\"#FF00FF\"), PorterDuff.Mode.SRC_IN); seekbar1.getThumb().setColorFilter(Color.parseColor(\"#FF00FF\"), PorterDuff.Mode.SRC_IN); \n\n//made by ax team",
+    "en_name": "Seekbar color change"
+  },
+  {
+    "name": "گرد کردن دکمه",
+    "en_name": "round button",
+    "code": "android.graphics.drawable. GradientDrawable gd \u003d new android.graphics.drawable. GradientDrawable(); gd.setColor(Color.parseColor(\"#2196f3\"));\n\ngd.setCornerRadius(100);\n\ngd.setStroke(2, Color.parseColor(\"#64b5f6\"));\n\nbutton1.setBackground(gd);\n\n//made by ax team"
+  },
+  {
+    "name": "پیغام با گرافیک زیبا",
+    "en_name": "graphic toast",
+    "code": "LayoutInflater inflater \u003d getLayoutInflater(); View toastLayout \u003d inflater.inflate(R.layout.tostt, null);\n\nTextView textview1 \u003d (TextView) toastLayout.findViewById(R.id.textview1);\ntextview1.setText(\"متن\");\nLinearLayout linear1 \u003d (LinearLayout) toastLayout.findViewById(R.id.linear1);\n\nToast toast \u003d new Toast(getApplicationContext()); toast.setDuration(Toast.LENGTH_LONG);\ntoast.setView(toastLayout);\ntoast.show();\n\n android.graphics.drawable.GradientDrawable HEIFBEG \u003d new android.graphics.drawable.GradientDrawable();\nHEIFBEG.setColor(Color.parseColor(\"#FFC107\"));\nHEIFBEG.setCornerRadius((int)30);\nHEIFBEG.setStroke(5, Color.parseColor(\"#212121\"));\nlinear1.setBackground(HEIFBEG);\n\n//made by ax team"
+  },
+  {
+    "name": "بارگذاری ادرس",
+    "en_name": "url",
+    "code": "startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(\"https://site.ru\")));\n\n//made by ax team"
+  },
+  {
+    "name": "حذف برنامه ها",
+    "en_name": "delete apps",
+    "code": "Intent startupIntent \u003d new Intent(Intent.ACTION_MAIN); \t\tstartupIntent.addCategory(Intent.CATEGORY_LAUNCHER);  \t\tfinal android.content.pm.PackageManager pm \u003d getPackageManager(); \t\tList\u003candroid.content.pm.ResolveInfo\u003e activities \u003d pm.queryIntentActivities(startupIntent,0);   \t\tCollections.sort(activities, new Comparator\u003candroid.content.pm.ResolveInfo\u003e() {  \t\t\t\tpublic int compare(android.content.pm.ResolveInfo a, android.content.pm.ResolveInfo b) {  \t\t\t\t\tandroid.content.pm.PackageManager pm \u003d getPackageManager();  \t\t\t\t\treturn String.CASE_INSENSITIVE_ORDER.compare(  \t\t\t\t\t\ta.loadLabel(pm).toString(),  \t\t\t\t\t\tb.loadLabel(pm).toString());  \t\t\t\t}  \t\t\t});   \t\tArrayAdapter\u003candroid.content.pm.ResolveInfo\u003e adapter \u003d new ArrayAdapter\u003candroid.content.pm.ResolveInfo\u003e(  \t\t\tthis, android.R.layout.simple_list_item_1, activities) {  \t\t\tpublic View getView(int pos, View convertView, ViewGroup parent) { TextView tv \u003d new TextView(MainActivity.this);  \t\t\t\tandroid.content.pm.ResolveInfo ri \u003d getItem(pos);  \t\t\ttv.setText(ri.loadLabel(pm));  \tLinearLayout lin \u003d new LinearLayout(MainActivity.this);ImageView iv \u003d new ImageView(MainActivity.this);iv.setImageDrawable(ri.loadIcon(pm));lin.addView(iv);lin.addView(tv);tv.setGravity(Gravity.CENTER_VERTICAL);tv.setPadding(16,0,0,0);tv.setTextSize(16);tv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.MATCH_PARENT ));LinearLayout.LayoutParams p \u003d\tnew LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.MATCH_PARENT);p.width \u003d 70;p.height \u003d 70;p.bottomMargin \u003d 4;p.topMargin \u003d 4;iv.setLayoutParams(p);lin.setPadding(6,6,6,6);return lin;  \t\t\t}  \t\t};  \t\tlistview1.setAdapter(adapter); \t\t \t\tlistview1.setOnItemClickListener(new AdapterView.OnItemClickListener() {  \t\t\t\t@Override \t\t\t\tpublic void onItemClick(AdapterView adapter, View v, int position, long id) \t\t\t\t{ \t\t\t\t\tandroid.content.pm.ResolveInfo resolveInfo \u003d (android.content.pm.ResolveInfo)adapter.getItemAtPosition(position);  \t\t\t\t\tandroid.content.pm.ActivityInfo activityInfo \u003d resolveInfo.activityInfo;  \t\t\t\t\tif (activityInfo \u003d\u003d null) return;  \t\t\t\t\tUri packageURI \u003d Uri.parse(\"package:\".concat(activityInfo.applicationInfo.packageName)); Intent uninstallIntent \u003d new Intent(Intent.ACTION_DELETE, packageURI); startActivity(uninstallIntent); \t\t\t\t}  \t\t\t \t\t});;\n\n//made by ax team"
+  },
+  {
+    "name": "ضد شات",
+    "en_name": "Anti-screenshot",
+    "code": "getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);\n\n//made by ax team"
+  },
+  {
+    "name": "ارسال اعلان",
+    "en_name": "send notification",
+    "code": "\nfinal Context context \u003d getApplicationContext();\n\n\nNotificationManager notificationManager \u003d (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);\n\nIntent intent \u003d new Intent(this, MainActivity.class); \nintent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP); \nPendingIntent pendingIntent \u003d PendingIntent.getActivity(this, 0, intent, 0); \nandroidx.core.app.NotificationCompat.Builder builder; \n\n    int notificationId \u003d 1;\n    String channelId \u003d \"channel-01\";\n    String channelName \u003d \"Channel Name\";\n    int importance \u003d NotificationManager.IMPORTANCE_HIGH;\n\n    if (android.os.Build.VERSION.SDK_INT \u003e\u003d android.os.Build.VERSION_CODES.O) {\n        NotificationChannel mChannel \u003d new NotificationChannel(\n                channelId, channelName, importance);\n        notificationManager.createNotificationChannel(mChannel);\n    }\n\n  \n androidx.core.app.NotificationCompat.Builder mBuilder \u003d new androidx.core.app.NotificationCompat.Builder(context, channelId)\n            .setSmallIcon(R.drawable.icon)\n            .setContentTitle(_av1)\n            .setContentText(_av2)\n            .setAutoCancel(true)\n            .setOngoing(false)\n            .setContentIntent(pendingIntent);\n    TaskStackBuilder stackBuilder \u003d TaskStackBuilder.create(context);\n    stackBuilder.addNextIntent(intent);\n    PendingIntent resultPendingIntent \u003d stackBuilder.getPendingIntent(\n            0,\n            PendingIntent.FLAG_UPDATE_CURRENT\n    );\n    mBuilder.setContentIntent(resultPendingIntent);\n\n    notificationManager.notify(notificationId, mBuilder.build());\n\n//made by ax team"
+  },
+  {
+    "name": "درصد باتری",
+    "en_name": "show battery ",
+    "code": "BatteryManager bm \u003d (BatteryManager)getSystemService(BATTERY_SERVICE);\nint batLevel \u003d bm.getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY);\ntextview1.setText(Integer.toString(batLevel));\n\n//made by ax team"
+  },
+  {
+    "name": "انیمیشن لیست ویو",
+    "en_name": "animation list view",
+    "code": "Animation animation;animation \u003d AnimationUtils.loadAnimation(\ngetApplicationContext(),android.R.anim.slide_in_left);animation.setDuration(200);linear1.startAnimation(animation); animation \u003d null;\n\n\n//made by ax team"
+  },
+  {
+    "name": "اشتراک گذاری عکس",
+    "en_name": "share picture",
+    "code": "Bitmap bm \u003d ((android.graphics.drawable.BitmapDrawable) imageview1.getDrawable()).getBitmap(); try { java.io.File file \u003d new java.io.File(getExternalCacheDir() + \"/image.jpg\"); java.io.OutputStream out \u003d new java.io.FileOutputStream(file); bm.compress(Bitmap.CompressFormat.JPEG, 100, out); out.flush(); out.close(); } catch (Exception e) { showMessage(e.toString()); } Intent iten \u003d new Intent(android.content.Intent.ACTION_SEND); iten.setType(\"*/*\"); iten.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new java.io.File(getExternalCacheDir() + \"/image.jpg\"))); startActivity(Intent.createChooser(iten, \"Send image\"));\n\n\n//made by ax team"
+  },
+  {
+    "name": "اشتراک گذاری برنامه",
+    "en_name": "share app",
+    "code": "//This code is use when you want to an app can be share on it own without using any share app to share.made by ax team\n\nString apk \u003d \"\";\nString uri \u003d (getPackageName);\ntry {\nandroid.content.pm.PackageInfo pi \u003d getPackageManager().getPackageInfo(uri, android.content.pm.PackageManager.GET_ACTIVITIES);\napk \u003d pi.applicationInfo.publicSourceDir;\n} catch (Exception e) {\nshowMessage(e.toString());\n}\nIntent iten \u003d new Intent(Intent.ACTION_SEND);\niten.setType(\"*/*\");\niten.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new java.io.File(apk)));\nstartActivity(Intent.createChooser(iten, \"Send APK\"));"
+  },
+  {
+    "name": "جستجو در لیست ویو",
+    "en_name": "Search in list view",
+    "code": "//This code is use to allows you to search items on your listview project.made by ax team\n\n((ArrayAdapter)listview1.getAdapter()).getFilter().filter(edittext1.getText().toString());"
+  },
+  {
+    "name": "کپی",
+    "en_name": "copy",
+    "code": "//This code allows you to paste text from clipboad onto edittext.\n\nClipboardManager clipboard \u003d (ClipboardManager) getSystemService(CLIPBOARD_SERVICE); \nwidgethere.setText(clipboard.getText());\n\n\n// widgethere is a TextView, EditText, or something made by ax team"
   }
 ]
